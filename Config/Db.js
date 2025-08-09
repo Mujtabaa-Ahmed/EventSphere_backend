@@ -5,10 +5,12 @@ const mongoose = require("mongoose");
 
 async function DbConnection(){
    
-    const connectionDB = await mongoose.connect(process.env.MONGODB_URI, {
+    const connectionDB = await mongoose.connect(process.env.MONGODB_URI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
   tls: true,
-  tlsAllowInvalidCertificates: false, // only true if you're using self-signed certs
-  tlsInsecure: false})
+  tlsAllowInvalidCertificates: true, // ← allow certs that aren't trusted (not recommended for production)
+})
     if(connectionDB)  console.log("MONGO DB ATLAS IS CONNECTED SUCCESSFULLY")
 
     }
