@@ -28,6 +28,10 @@ const {
     deleteBooth
 } = require('./Controllers/boothController')
 
+
+App.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
 // Booth Routes
 App.route("/booth")
     .get(getAllBooths)  // Get all booth
